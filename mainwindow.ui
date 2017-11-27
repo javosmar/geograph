@@ -24,12 +24,12 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>360</x>
       <y>10</y>
-      <width>122</width>
+      <width>157</width>
       <height>120</height>
      </rect>
     </property>
@@ -46,7 +46,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="spinBox_x"/>
+          <widget class="QDoubleSpinBox" name="spinBox_x">
+           <property name="decimals">
+            <number>6</number>
+           </property>
+           <property name="minimum">
+            <double>-99.000000000000000</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -60,7 +67,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="spinBox_y"/>
+          <widget class="QDoubleSpinBox" name="spinBox_y">
+           <property name="decimals">
+            <number>6</number>
+           </property>
+           <property name="minimum">
+            <double>-99.000000000000000</double>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -81,6 +95,32 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="labelfile">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>145</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelfile2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>180</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

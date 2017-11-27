@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QFile>
+
+QFile file("out.txt");
+QTextStream out(&file);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,8 +15,28 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->plot->addGraph();
     ui->plot->graph(0)->setScatterStyle(QCPScatterStyle::ssCircle);
     ui->plot->graph(0)->setLineStyle(QCPGraph::lsNone);
-    ui->plot->xAxis->setRange(0,10);
-    ui->plot->yAxis->setRange(0,10);
+    ui->plot->xAxis->setRange(-31.748,-31.749);
+    ui->plot->yAxis->setRange(-60.522,-60.524);
+    //-------------
+
+    //----TXT-----
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+    else
+        qDebug() << "txt creado con éxito";
+    while(!file.atEnd()){
+        QByteArray linea = file.read(11);
+        linea.chop(1);
+        ui->labelfile->setText(linea.data());
+        ui->spinBox_x->setValue(linea.toFloat());
+        linea = file.read(11);
+        linea.chop(1);
+        ui->labelfile2->setText(linea.data());
+        ui->spinBox_y->setValue(linea.toFloat());
+        on_pushButton_agregar_clicked();
+    }
+    file.close();
+    //------------
 }
 MainWindow::~MainWindow()
 {
